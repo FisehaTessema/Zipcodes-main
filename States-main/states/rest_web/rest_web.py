@@ -35,13 +35,13 @@ def searchZipcodes(searchZipcodes):
 #update state database population for a specified state
 @app.route('/updatezipcodespop/<updateZipcodes> <updatePOP>')
 def updatezipcodespop(updateZipcodes, updatePOP):
-    cursor.execute("SELECT * FROM `states` WHERE State=%s", [updateZipcodes])
+    cursor.execute("SELECT * FROM `zipcodes` WHERE zip=%s", [updateZipcodes])
     test = cursor.rowcount
     if test != 1:
         return updateZipcodes + " was not found"
     else:
-        cursor.execute("UPDATE `states` SET Pop = %s WHERE State= %s;", [updatePOP,updateZipcodes])
-        cursor.execute("SELECT * FROM `states` WHERE State=%s and Pop=%s", [updateZipcodes,updatePOP])
+        cursor.execute("UPDATE `zipcodes` SET Pop = %s WHERE zip= %s;", [updatePOP,updateZipcodes])
+        cursor.execute("SELECT * FROM `zipcodes` WHERE zip=%s and Pop=%s", [updateZipcodes,updatePOP])
         test1 = cursor.rowcount
         if test1 != 1:
             return updateZipcodes + "  failed to update"
