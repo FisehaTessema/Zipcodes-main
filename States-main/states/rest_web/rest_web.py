@@ -46,7 +46,7 @@ def updatezipcodespop(updateZipcodes, updatePOP):
         if test1 != 1:
             return updateZipcodes + "  failed to update"
         else:
-            return 'Population has been updated successfully for State: %s' % updateZipcodes
+            return 'Population has been updated successfully for zipcodes: %s' % updateZipcodes
 
 #update webpage
 @app.route('/update',methods = ['POST'])
